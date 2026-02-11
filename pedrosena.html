@@ -1,51 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <title>Sobre Mim</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1f2933, #111827);
+            color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        main {
+            width: 90%;
+            max-width: 800px;
+            margin-top: 40px;
+        }
+
+        
+
+        .texto {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #titulo {
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            color: #38bdf8;
+        }
+
+        .curiosidades h2 {
+            margin-bottom: 15px;
+            color: #7dd3fc;
+        }
+
+        .curiosidades li {
+            list-style: none;
+            background: #334155;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: 0.2s ease;
+        }
+
+        .curiosidades li:hover {
+            background: #475569;
+            transform: translateX(5px);
+        }
+
+        footer {
+            color: #9ca3af;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 70px;
+        }
+    </style>
 </head>
 
 <body>
-    <!DOCTYPE html>
-    <html lang="pt-br">
+    <main>
+        <div class="texto">
+            <h2 id="titulo">SOBRE MIM</h2>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sobre Mim</title>
-    </head>
-
-    <body>
-        <main>
-            <div class="texto">
-                <h2 id="titulo">SOBRE MIM</h2>
-
-                <div class="curiosidades">
-                    <h2>Curiosidades sobre mim</h2>
-                    <li>Faço Academia e TENTO jogar bola</li>
-                    <br>
-                    <li>Já ganhei o JESP de futsal</li>
-                    <br>
-                    <li>Ganhei 8 interclasses</li>
-                    <br>
-                    <li>Sou viciado em jogar FIFA</li>
-                    <br>
-                    <li>Meu gosto de música é bem eclético</li>
-                </div>
-
-
-
-
+            <div class="curiosidades">
+                <h2>Curiosidades sobre mim</h2>
+                <li>Faço Academia e TENTO jogar bola</li>
+                <br>
+                <li>Já ganhei o JESP de futsal</li>
+                <br>
+                <li>Ganhei 8 interclasses</li>
+                <br>
+                <li>Sou viciado em jogar FIFA</li>
+                <br>
+                <li>Meu gosto de música é bem eclético</li>
             </div>
-            </div>
-            <footer style="text-align: center; margin-top: 70px;">
-                <h6>&copy 2025 Pedro Sena<h6>
-            </footer>
-        </main>
 
-    </html>
+
+
+
+        </div>
+        </div>
+        <footer style="text-align: center; margin-top: 70px;">
+            <h6>&copy 2025 Pedro Sena<h6>
+        </footer>
+    </main>
 </body>
+
 </html>

@@ -4,8 +4,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Portifolio Pessoal</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #141414 0%, #000000 50%, #1a1a1a 100%);
+            color: #ffffff;
+            padding: 40px 20px;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin: 60px 0 30px 0;
+            color: #e50914;
+            font-weight: 600;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #e50914, #b20710);
+            border-radius: 2px;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e50914, transparent);
+            width: 60%;
+            margin: 50px auto;
+            opacity: 0.6;
+        }
+
+        .box-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(229, 9, 20, 0.08);
+            margin: 30px auto;
+            max-width: 900px;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(229, 9, 20, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .box-info:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(229, 9, 20, 0.4);
+            border-color: rgba(229, 9, 20, 0.5);
+            background: rgba(229, 9, 20, 0.12);
+        }
+
+        #ol-lista-sobre-mim,
+        #ul-lista-curiosidades,
+        #ol-lista-lugares,
+        #ul-lista-lugares {
+            display: block;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #d4d4d4;
+        }
+
+        #ol-lista-sobre-mim li,
+        #ul-lista-curiosidades li,
+        #ol-lista-lugares li,
+        #ul-lista-lugares li {
+            margin: 10px 0;
+            padding-left: 10px;
+        }
+
+        #sobre-mim {
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        #sobre-mim img {
+            max-width: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(229, 9, 20, 0.5);
+            box-shadow: 0 8px 30px rgba(229, 9, 20, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        #sobre-mim img:hover {
+            transform: scale(1.05) rotate(5deg);
+            border-color: rgba(229, 9, 20, 0.9);
+            box-shadow: 0 12px 40px rgba(229, 9, 20, 0.7);
+        }
+
+        .curiosidades {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            text-align: center;
+            margin: 40px auto;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .grid-item {
+            overflow: hidden;
+            border-radius: 15px;
+            position: relative;
+            transition: all 0.4s ease;
+            background: rgba(229, 9, 20, 0.05);
+            border: 1px solid rgba(229, 9, 20, 0.2);
+        }
+
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.4), rgba(178, 7, 16, 0.4));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .grid-item:hover::before {
+            opacity: 1;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(229, 9, 20, 0.5);
+            border-color: rgba(229, 9, 20, 0.6);
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            object-fit: cover;
+            transition: all 0.4s ease;
+            display: block;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+
+        #ul-lista-curiosidades {
+            width: auto;
+            max-width: 800px;
+            padding: 40px 60px;
+        }
+
+        .lugares {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #ol-lista-lugares,
+        #ul-lista-lugares {
+            width: auto;
+            max-width: 600px;
+            padding: 40px 60px;
+        }
+
+        /* Animações */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /** Responsividade **/
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .box-info {
+                padding: 25px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .grid-item img {
+                height: 180px;
+            }
+
+            #sobre-mim {
+                flex-direction: column;
+            }
+
+            #ul-lista-curiosidades,
+            #ol-lista-lugares,
+            #ul-lista-lugares {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .grid-item img {
+                height: 150px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -16,7 +305,7 @@
     <h2>Sobre mim</h2>
 
     <div id="sobre-mim" class="box-info">
-        <img src="/assets/image/enzoMota.jpg" alt="Foto de Enzo Mota" >
+        <img src="/assets/images/enzoMota.jpg" alt="Foto de Enzo Mota">
 
         <ol type="a" id="ol-lista-sobre-mim" class="box-info">
             <li>Nome: Enzo Mota</li>
@@ -30,48 +319,48 @@
     <!-- NOVA SEÇÃO -->
     <!-- NOVA SEÇÃO -->
     <!-- NOVA SEÇÃO -->
-     <h2>Curiosidades</h2>
+    <h2>Curiosidades</h2>
 
     <div class="curiosidades">
         <div id="grid" class="grid">
             <div class="grid-item">
-                <img src="./assets/image/messi.jpg" alt="Foto do Goat">
+                <img src="./assets/images/messi.jpg" alt="Foto do Goat">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/galinha(2).jpg" alt="Foto da galinha">
+                <img src="./assets/images/galinha(2).jpg" alt="Foto da galinha">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/phill(2).jpg" alt="Foto do Phill">
+                <img src="./assets/images/phill(2).jpg" alt="Foto do Phill">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/luca.jpg" alt="Foto do Luca">
+                <img src="./assets/images/luca.jpg" alt="Foto do Luca">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/moto.jpg" alt="Foto da moto">
+                <img src="./assets/images/moto.jpg" alt="Foto da moto">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/galo.jpg" alt="Foto do galo">
+                <img src="./assets/images/galo.jpg" alt="Foto do galo">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/eddie.jpg" alt="Foto do Eddie">
+                <img src="./assets/images/eddie.jpg" alt="Foto do Eddie">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/olivia.jpg" alt="Foto da Olivia">
+                <img src="./assets/images/olivia.jpg" alt="Foto da Olivia">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/paris.jpg" alt="Foto da Paris">
+                <img src="./assets/images/paris.jpg" alt="Foto da Paris">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/tucano.jpg" alt="Foto do Tucano">
+                <img src="./assets/images/tucano.jpg" alt="Foto do Tucano">
             </div>
         </div>
 
@@ -93,11 +382,11 @@
     <div class="lugares">
         <div id="grid" class="grid">
             <div class="grid-item">
-                <img src="./assets/image/ny2.jpg" alt="Foto da Nova Iorque">
+                <img src="./assets/images/ny2.jpg" alt="Foto da Nova Iorque">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/pg.jpg" alt="Foto de Porto de Galinhas">
+                <img src="./assets/images/pg.jpg" alt="Foto de Porto de Galinhas">
             </div>
         </div>
 
@@ -123,15 +412,15 @@
 
         <div id="grid" class="grid">
             <div class="grid-item">
-                <img src="./assets/image/thumb_orlando.png" alt="Foto de Orlando">
+                <img src="./assets/images/thumb_orlando.png" alt="Foto de Orlando">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/ma.jpg" alt="Foto do Maranhão">
+                <img src="./assets/images/ma.jpg" alt="Foto do Maranhão">
             </div>
 
             <div class="grid-item">
-                <img src="./assets/image/montreal.webp" alt="Foto de Montreal">
+                <img src="./assets/images/montreal.webp" alt="Foto de Montreal">
             </div>
         </div>
 
